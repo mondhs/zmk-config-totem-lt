@@ -5,11 +5,13 @@
  */
 
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 / {
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
+        zmk,physical-layout = &totem_physical_layout;
     };
 
     default_transform: keymap_transform_0 {
@@ -40,5 +42,52 @@
             , <&xiao_d 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
+    };
+
+    totem_physical_layout: totem_physical_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "TOTEM";
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100   80  142 (-1000)  130  192>  // pos  0 RC(0,0)
+            , <&key_physical_attrs 100 100  190   57 (-400)  240  107>  // pos  1 RC(0,1)
+            , <&key_physical_attrs 100 100  303    0      0  353   50>  // pos  2 RC(0,2)
+            , <&key_physical_attrs 100 100  402   47      0  452   97>  // pos  3 RC(0,3)
+            , <&key_physical_attrs 100 100  500   62      0  550  112>  // pos  4 RC(0,4)
+            , <&key_physical_attrs 100 100  817   62      0  867  112>  // pos  5 RC(0,5)
+            , <&key_physical_attrs 100 100  917   47      0  967   97>  // pos  6 RC(0,6)
+            , <&key_physical_attrs 100 100 1015    0      0 1065   50>  // pos  7 RC(0,7)
+            , <&key_physical_attrs 100 100 1127   57    400 1177  107>  // pos  8 RC(0,8)
+            , <&key_physical_attrs 100 100 1238  142   1000 1288  192>  // pos  9 RC(0,9)
+            , <&key_physical_attrs 100 100   95  233 (-1000)  145  283>  // pos 10 RC(1,0)
+            , <&key_physical_attrs 100 100  197  150 (-400)  247  200>  // pos 11 RC(1,1)
+            , <&key_physical_attrs 100 100  303   93      0  353  143>  // pos 12 RC(1,2)
+            , <&key_physical_attrs 100 100  402  140      0  452  190>  // pos 13 RC(1,3)
+            , <&key_physical_attrs 100 100  500  155      0  550  205>  // pos 14 RC(1,4)
+            , <&key_physical_attrs 100 100  817  155      0  867  205>  // pos 15 RC(1,5)
+            , <&key_physical_attrs 100 100  917  140      0  967  190>  // pos 16 RC(1,6)
+            , <&key_physical_attrs 100 100 1015   93      0 1065  143>  // pos 17 RC(1,7)
+            , <&key_physical_attrs 100 100 1122  150    400 1172  200>  // pos 18 RC(1,8)
+            , <&key_physical_attrs 100 100 1223  233   1000 1273  283>  // pos 19 RC(1,9)
+            , <&key_physical_attrs 100 100    7  302 (-1000)   57  352>  // pos 20 RC(3,0)
+            , <&key_physical_attrs 100 100  112  325 (-1000)  162  375>  // pos 21 RC(2,0)
+            , <&key_physical_attrs 100 100  203  243 (-400)  253  293>  // pos 22 RC(2,1)
+            , <&key_physical_attrs 100 100  303  187      0  353  237>  // pos 23 RC(2,2)
+            , <&key_physical_attrs 100 100  402  233      0  452  283>  // pos 24 RC(2,3)
+            , <&key_physical_attrs 100 100  500  248      0  550  298>  // pos 25 RC(2,4)
+            , <&key_physical_attrs 100 100  817  248      0  867  298>  // pos 26 RC(2,5)
+            , <&key_physical_attrs 100 100  917  233      0  967  283>  // pos 27 RC(2,6)
+            , <&key_physical_attrs 100 100 1015  187      0 1065  237>  // pos 28 RC(2,7)
+            , <&key_physical_attrs 100 100 1115  243    400 1165  293>  // pos 29 RC(2,8)
+            , <&key_physical_attrs 100 100 1207  325   1000 1257  375>  // pos 30 RC(2,9)
+            , <&key_physical_attrs 100 100 1312  302   1000 1362  352>  // pos 31 RC(3,9)
+            , <&key_physical_attrs 100 100  375  347      0  425  397>  // pos 32 RC(3,2)
+            , <&key_physical_attrs 100 100  483  362   1500  533  412>  // pos 33 RC(3,3)
+            , <&key_physical_attrs 100 100  585  403   3000  635  453>  // pos 34 RC(3,4)
+            , <&key_physical_attrs 100 100  733  403 (-3000)  783  453>  // pos 35 RC(3,5)
+            , <&key_physical_attrs 100 100  835  362 (-1500)  885  412>  // pos 36 RC(3,6)
+            , <&key_physical_attrs 100 100  943  347      0  993  397>  // pos 37 RC(3,7)
+        ;
     };
 };
